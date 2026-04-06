@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가온그룹 | 자금팀·회계팀 경력직 채용</title>
+<meta property="og:title" content="가온그룹 | 자금팀·회계팀 경력직 채용">
+<meta property="og:description" content="중견 상장사 가온그룹 자금팀·회계팀 과차장급 경력직 모집. 정규직 | 경기 성남 분당">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f2f5;
+    --white: #ffffff;
+    --dark: #1a1f36;
+    --navy: #2d3561;
+    --accent: #3a5bd9;
+    --accent-dim: rgba(58,91,217,0.07);
+    --accent-border: rgba(58,91,217,0.18);
+    --gold: #c8973a;
+    --gold-dim: rgba(200,151,58,0.08);
+    --gold-border: rgba(200,151,58,0.2);
+    --border: #e2e6ef;
+    --text: #1a1f36;
+    --muted: #6b7694;
+    --light-text: #4a5270;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--dark);
+    padding: 11px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-left { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; }
+  .topbar-right { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--gold); letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.3;transform:scale(0.7);} }
+
+  /* HERO */
+  .hero {
+    background: var(--white);
+    border-bottom: 4px solid var(--accent);
+    padding: 56px 0 0;
+    position: relative; overflow: hidden;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(58,91,217,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .hero-inner { max-width: 720px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-dim); border: 1px solid var(--accent-border);
+    color: var(--accent); font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards;
+  }
+  .hero-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  .hero-company {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+    color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 44px); font-weight: 900;
+    color: var(--dark); line-height: 1.2; letter-spacing: -1.5px;
+    margin-bottom: 6px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+
+  .hero-sub {
+    font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.8;
+    opacity: 0; animation: fadeUp 0.5s ease 0.4s forwards;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.5s forwards;
+  }
+  .htag {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+    padding: 5px 14px; border-radius: 2px;
+    border: 1px solid var(--border); color: var(--muted); background: var(--bg);
+    transition: all 0.2s; cursor: default;
+  }
+  .htag:hover { transform: translateY(-2px); }
+  .htag.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .htag.gold { background: var(--gold-dim); color: var(--gold); border-color: var(--gold-border); }
+
+  /* HERO STATS BAR */
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border); margin: 0 -32px;
+    opacity: 0; animation: fadeUp 0.5s ease 0.6s forwards;
+  }
+  .hstat {
+    padding: 22px 32px; border-right: 1px solid var(--border);
+    cursor: default; transition: background 0.2s;
+  }
+  .hstat:hover { background: var(--bg); }
+  .hstat:last-child { border-right: none; }
+  .hstat-num {
+    font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700;
+    color: var(--dark); line-height: 1; margin-bottom: 4px;
+  }
+  .hstat-num .a { color: var(--accent); }
+  .hstat-label { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(14px);} to{opacity:1;transform:translateY(0);} }
+
+  /* CONTAINER */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* SECTION */
+  .section {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 4px; padding: 32px; margin-top: 12px;
+    transition: border-color 0.25s, box-shadow 0.25s, opacity 0.6s ease, transform 0.6s ease;
+  }
+  .section:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-color: #d0d6e8; }
+  .section.reveal { opacity: 0; transform: translateY(20px); }
+  .section.reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .sec-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+    color: var(--accent); background: var(--accent-dim);
+    border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px;
+  }
+  .sec-title { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; color: var(--dark); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ABOUT */
+  .about-text { font-size: 14px; color: var(--light-text); line-height: 2; margin-bottom: 20px; }
+  .about-text strong { color: var(--text); }
+  .kaon-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); transition: border-color 0.2s; }
+  .kaon-link:hover { border-color: var(--accent); }
+
+  .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 18px 16px; text-align: center;
+    transition: border-color 0.25s, transform 0.25s; cursor: default;
+  }
+  .stat:hover { border-color: var(--accent-border); transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+  .stat-num { font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; color: var(--dark); line-height: 1; margin-bottom: 5px; }
+  .stat-num .a { color: var(--accent); }
+  .stat-label { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+
+  /* INFO TABLE */
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .info-table tr:hover { background: var(--bg); }
+  .info-table tr:last-child { border-bottom: none; }
+  .info-table td { padding: 13px 4px; font-size: 13px; vertical-align: top; }
+  .info-table td:first-child { width: 100px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  .info-table td:last-child { color: var(--text); }
+
+  /* TEAM SECTION - 두 파트 분리 */
+  .team-block {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden; margin-bottom: 16px;
+  }
+  .team-block:last-child { margin-bottom: 0; }
+  .team-header {
+    padding: 14px 20px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .team-label {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .team-label.fund { color: var(--accent); }
+  .team-label.accounting { color: var(--gold); }
+  .team-tag {
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 2px;
+  }
+  .team-tag.fund { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+  .team-tag.accounting { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+  .team-body { padding: 16px 20px; }
+
+  /* RESP LIST */
+  .resp-list { display: flex; flex-direction: column; gap: 8px; }
+  .resp-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px 16px; background: var(--white);
+    border: 1px solid var(--border); border-radius: 4px;
+    transition: border-color 0.2s, transform 0.2s; cursor: default;
+  }
+  .resp-item:hover { border-color: var(--accent-border); transform: translateX(4px); }
+  .resp-item.gold:hover { border-color: var(--gold-border); }
+  .resp-num { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; color: var(--accent); min-width: 22px; margin-top: 2px; }
+  .resp-num.gold { color: var(--gold); }
+  .resp-text { font-size: 13px; color: var(--light-text); line-height: 1.6; }
+  .resp-text strong { color: var(--text); }
+
+  /* SCOPE GRID for 회계팀 */
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .scope-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 4px; padding: 14px 16px;
+    transition: border-color 0.2s, transform 0.2s; cursor: default;
+  }
+  .scope-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+  .scope-card h5 {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  }
+  .scope-card p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* REQ GRID */
+  .req-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .req-box { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+  .req-box:hover { transform: translateY(-2px); }
+  .req-box.fund:hover { border-color: var(--accent-border); }
+  .req-box.accounting:hover { border-color: var(--gold-border); }
+  .req-head { padding: 10px 16px; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .req-head.fund { color: var(--accent); background: var(--accent-dim); }
+  .req-head.accounting { color: var(--gold); background: var(--gold-dim); }
+  .req-box ul { list-style: none; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .req-box ul li { font-size: 13px; color: var(--light-text); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .req-box ul li::before { content: '·'; font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: -2px; }
+  .req-box.fund ul li::before { color: var(--accent); }
+  .req-box.accounting ul li::before { color: var(--gold); }
+
+  .pref-box { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; }
+  .pref-box h5 { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .pref-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pref-tag { font-size: 12px; color: var(--light-text); background: var(--white); border: 1px solid var(--border); padding: 4px 12px; border-radius: 2px; transition: border-color 0.2s; cursor: default; }
+  .pref-tag:hover { border-color: var(--gold-border); color: var(--gold); }
+
+  /* NEXT */
+  .next-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; font-size: 13px; color: var(--light-text); }
+  .next-wrap strong { color: var(--text); }
+  .next-item { display: flex; gap: 12px; align-items: flex-start; margin-top: 10px; }
+  .next-num { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--accent); width: 22px; height: 22px; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+  /* APPLY */
+  .apply-section {
+    background: var(--dark); border-radius: 4px; padding: 40px 32px; margin-top: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden;
+    transition: box-shadow 0.3s, opacity 0.6s ease, transform 0.6s ease;
+  }
+  .apply-section:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.2); }
+  .apply-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top right, rgba(58,91,217,0.15) 0%, transparent 60%); pointer-events: none; }
+  .apply-section.reveal { opacity: 0; transform: translateY(20px); }
+  .apply-section.reveal.visible { opacity: 1; transform: translateY(0); }
+  .apply-left h3 { font-size: 20px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+  .apply-left p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+  .apply-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; position: relative; z-index: 1; }
+  .apply-btn { display: inline-block; background: var(--accent); color: white; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; padding: 12px 26px; border-radius: 2px; text-decoration: none; letter-spacing: 0.5px; white-space: nowrap; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .apply-btn:hover { background: #4a6be8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,91,217,0.4); }
+  .apply-secondary { display: inline-block; color: rgba(255,255,255,0.4); font-family: 'DM Sans', sans-serif; font-size: 11px; padding: 10px 18px; border-radius: 2px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+  .apply-secondary:hover { border-color: var(--gold-border); color: var(--gold); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .contact-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; transition: border-color 0.2s, transform 0.2s; }
+  .contact-card:hover { border-color: var(--accent-border); transform: translateY(-2px); }
+  .clabel { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+  .cvalue { font-size: 13px; font-weight: 700; color: var(--text); }
+  .csub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* NOTICE */
+  .notice-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 28px; margin-top: 12px; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .notice-section.reveal { opacity: 0; transform: translateY(20px); }
+  .notice-section.reveal.visible { opacity: 1; transform: translateY(0); }
+  .notice-title { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .notice-section p { font-size: 12px; color: var(--muted); line-height: 1.9; margin-bottom: 5px; }
+  .notice-section p:last-child { margin-bottom: 0; }
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  footer { text-align: center; padding: 28px 20px; font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); background: var(--white); letter-spacing: 0.5px; }
+
+  @media(max-width:520px) {
+    .req-wrap{grid-template-columns:1fr;} .contact-grid{grid-template-columns:1fr;}
+    .stats-bar{grid-template-columns:1fr;} .scope-grid{grid-template-columns:1fr;}
+    .section{padding:20px 16px;} .apply-section{flex-direction:column;padding:28px 20px;}
+    .apply-right{align-items:flex-start;} .hero-inner{padding:0 20px;}
+    .hero-stats{margin:0;} .hstat{padding:16px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">잡앤커리어 · 헤드헌팅</div>
+  <div class="topbar-right"><div class="status-dot"></div> Confidential</div>
+</div>
+
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Kaon Group · Finance & Accounting</div>
+    <div class="hero-company">가온그룹 (KAON GROUP)</div>
+    <h1>자금팀 · 회계팀<br><em>경력직</em> 채용</h1>
+    <p class="hero-sub">중견 상장사 가온그룹에서 재무·회계 전문가를 모십니다<br>과차장급 이상 · 정규직</p>
+    <div class="hero-tags">
+      <span class="htag primary">정규직</span>
+      <span class="htag gold">과차장급 이상</span>
+      <span class="htag">경기 성남 분당</span>
+      <span class="htag">중견 상장사</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="90" data-suffix="+">90+</span></div>
+      <div class="hstat-label">공급 국가</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="230" data-suffix="+">230+</span></div>
+      <div class="hstat-label">글로벌 고객</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num"><span class="count-num" data-target="53" data-suffix="%">53%</span></div>
+      <div class="hstat-label">R&D 인력 비중</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">01</span><span class="sec-title">Company Overview</span></div>
+    <p class="about-text"><a class="kaon-link" href="https://www.kaongroup.com/ko/" target="_blank">가온그룹</a>은 AI 솔루션, OTT 미디어 서비스, 네트워크 디바이스 및 통합 솔루션을 기반으로 글로벌 시장에 제품과 플랫폼을 공급하는 <strong>기술 중심 기업</strong>입니다. 전 세계 90개국 이상에 공급 레퍼런스를 보유하고, 230개 이상의 글로벌 고객과 협업해 왔으며, 임직원 중 R&D 엔지니어 비중이 53%에 달하는 기술 인력 중심 조직입니다.</p>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="90" data-suffix="+">90+</span></div><div class="stat-label">COUNTRIES</div></div>
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="230" data-suffix="+">230+</span></div><div class="stat-label">CLIENTS</div></div>
+      <div class="stat"><div class="stat-num"><span class="count-num" data-target="53" data-suffix="%">53%</span></div><div class="stat-label">R&D RATIO</div></div>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">02</span><span class="sec-title">Position Details</span></div>
+    <table class="info-table">
+      <tr><td>포지션</td><td><strong>자금팀 · 회계팀 경력직</strong></td></tr>
+      <tr><td>직급</td><td>과차장급 이상</td></tr>
+      <tr><td>고용형태</td><td>정규직</td></tr>
+      <tr><td>근무지</td><td>경기 성남시 분당구 성남대로 884-3 가온그룹 빌딩 <span style="color:var(--muted);font-size:12px;">(야탑동)</span></td></tr>
+      <tr><td>근무시간</td><td>주 5일 (월~금) 09:00 ~ 18:00</td></tr>
+      <tr><td>급여</td><td>면접 후 결정 <span style="color:var(--muted);font-size:12px;">※ 희망연봉·희망조건 반드시 기재</span></td></tr>
+    </table>
+  </div>
+
+  <!-- KEY RESPONSIBILITIES -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">03</span><span class="sec-title">Key Responsibilities</span></div>
+
+    <!-- 자금팀 -->
+    <div class="team-block">
+      <div class="team-header">
+        <span class="team-label fund">자금팀</span>
+        <span class="team-tag fund">Cash Management</span>
+      </div>
+      <div class="team-body">
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-num">01</div><div class="resp-text">자금 운영업무 <strong>(자금집행 및 금융기관 대응)</strong></div></div>
+          <div class="resp-item"><div class="resp-num">02</div><div class="resp-text">자금일보 작성 및 보고</div></div>
+          <div class="resp-item"><div class="resp-num">03</div><div class="resp-text">법인카드 관리 및 비용관리</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 회계팀 -->
+    <div class="team-block">
+      <div class="team-header">
+        <span class="team-label accounting">회계팀</span>
+        <span class="team-tag accounting">Accounting Scope</span>
+      </div>
+      <div class="team-body">
+        <div class="scope-grid">
+          <div class="scope-card">
+            <h5>재무회계</h5>
+            <p>월/분기/연 결산 수행<br>K-IFRS 적용 및 회계정책 검토</p>
+          </div>
+          <div class="scope-card">
+            <h5>연결회계</h5>
+            <p>연결재무제표 작성<br>해외 자회사 검토 및 연결조정</p>
+          </div>
+          <div class="scope-card">
+            <h5>법인세 / 세무</h5>
+            <p>세무조정 및 신고<br>이연법인세·세무리스크 대응</p>
+          </div>
+          <div class="scope-card">
+            <h5>내부회계관리</h5>
+            <p>제도 구축 및 운영<br>내부통제 점검·문서화·평가</p>
+          </div>
+          <div class="scope-card">
+            <h5>외부감사 대응</h5>
+            <p>감사 자료 대응<br>회계법인 질의·회계이슈 검토</p>
+          </div>
+          <div class="scope-card">
+            <h5>기타 재무관리</h5>
+            <p>ERP 회계 데이터 관리<br>회계 프로세스 개선·내부통제 강화</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">04</span><span class="sec-title">Requirements</span></div>
+    <div class="req-wrap">
+      <div class="req-box fund">
+        <div class="req-head fund">자금팀 필수</div>
+        <ul>
+          <li>SAP FI 모듈 사용 가능자</li>
+          <li>엑셀 사용 능숙자</li>
+          <li>외국환거래 실무 경험자</li>
+        </ul>
+      </div>
+      <div class="req-box accounting">
+        <div class="req-head accounting">회계팀 필수</div>
+        <ul>
+          <li>회계/재무 경력 10년 이상</li>
+          <li>연결재무제표 작성 경험</li>
+          <li>법인세 및 세무조정 경험</li>
+          <li>K-IFRS 기반 SAP FI/CO 결산</li>
+          <li>내부회계관리제도 경험</li>
+          <li>외부감사 대응 경험</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pref-box">
+      <h5>공통 우대사항</h5>
+      <div class="pref-tags">
+        <span class="pref-tag">상장사 제조업 경험</span>
+        <span class="pref-tag">해외법인 관리 경험</span>
+        <span class="pref-tag">회계/세무 자격증</span>
+        <span class="pref-tag">회계사/세무사 1차 합격자</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT STEP -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">05</span><span class="sec-title">Next Step</span></div>
+    <div class="next-wrap">
+      <p>관심 있으시면 아래 <strong>2가지</strong>만 회신 부탁드립니다</p>
+      <div class="next-item"><div class="next-num">1</div><div>면접 가능 일정 <span style="color:var(--muted);">(예: ○/○(수) 오전, 오후)</span></div></div>
+      <div class="next-item"><div class="next-num">2</div><div>희망연봉 및 출근 가능일</div></div>
+      <p style="margin-top:14px;color:var(--muted);font-size:12px;">개인 이력서 또는 입사지원서 양식 작성 후 송부해 주시면, 확인 후 상세 전형 절차를 안내드리겠습니다.</p>
+    </div>
+  </div>
+
+  <!-- APPLY -->
+  <div class="apply-section">
+    <div class="apply-left">
+      <h3>Apply Now</h3>
+      <p>개인 이력서 또는 입사지원서 다운로드 후<br>작성하여 이메일로 제출해 주세요<br>
+      <span style="font-size:11px;">※ 희망연봉 및 면접 가능일 반드시 기재</span></p>
+    </div>
+    <div class="apply-right">
+      <a class="apply-btn" href="https://drive.google.com/uc?export=download&id=1Co8OQ0_4vqmBeIyiM0fo2v3GA6tT8YJM" target="_blank">입사지원서 다운로드</a>
+      <a class="apply-secondary" href="mailto:jobnc@jobnc.co.kr">이력서 제출 · jobnc@jobnc.co.kr</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <div class="sec-header"><span class="sec-num">06</span><span class="sec-title">Contact</span></div>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="clabel">담당자</div><div class="cvalue">잡앤커리어</div><div class="csub">HR사업본부</div></div>
+      <div class="contact-card"><div class="clabel">이메일</div><div class="cvalue">jobnc@jobnc.co.kr</div></div>
+      <div class="contact-card"><div class="clabel">문의 전화 1</div><div class="cvalue">010-5716-3459</div></div>
+      <div class="contact-card"><div class="clabel">문의 전화 2</div><div class="cvalue">010-5742-4378</div></div>
+    </div>
+  </div>
+
+  <!-- 유의사항 -->
+  <div class="notice-section">
+    <div class="notice-title">유의사항 및 안내</div>
+    <p>• 상기 급여 및 복리후생 등의 채용 조건은 회사 사유에 의해 변경될 수 있습니다.</p>
+    <p>• 당사는 채용 합격 이전에 <strong style="color:var(--text);">계좌번호, 주민등록등본</strong> 제출을 요청하지 않습니다.</p>
+    <p>• 제출한 채용 관련 서류는 채용 여부가 확정된 이후 14일 안에 요청 시 반환 또는 폐기해드립니다.</p>
+    <p>• 기재한 개인정보는 입사 시 인사업무 외 다른 용도로 사용되지 않으며, 지원하신 이력서는 채용 추천을 위해 잡앤커리어 내부 데이터베이스에 저장됩니다.</p>
+    <p>• 채용 추천 비동의 시 인재채용팀으로 연락 부탁드립니다.</p>
+    <p>• 서류전형 합격자 발표 및 면접 전형은 입사지원 시 기입한 연락처로 개별 통보(문자 또는 유선)하며, 전형 방법 및 일정은 업체 사정에 따라 변경될 수 있습니다.</p>
+    <p>• 응시 분야에 적격자가 없는 경우 채용하지 않을 수 있습니다.</p>
+    <div class="divider"></div>
+    <div class="notice-title">개인정보 보호 및 활용 동의</div>
+    <p>본 채용건에 최종 제출하신 입사지원서 상의 개인정보는 개인정보 보호법에 의거하여 당사 상시 채용을 위한 용도로만 사용됩니다. 입사지원서 제출 시 당사의 상시 채용 전형 과정에서의 개인정보 활용에 동의한 것으로 간주됩니다.</p>
+    <p>모든 채용 절차는 취업규칙, 근로기준법 및 관련 법규에 따라 진행되고 있으며, 채용절차의 공정화에 관한 법률 제11조 및 개인정보보호법 제21조에 따라 채용 서류의 반환 및 개인정보가 불필요하게 되었을 때는 지체없이 파기합니다.</p>
+    <div class="divider"></div>
+    <div class="notice-title">채용 서류 반환 안내</div>
+    <p>본 고지는 채용절차의 공정화에 관한 법률 제11조 제5항에 따른 것으로, 최종합격이 되지 못한 구직자는 최종합격 발표일로부터 <strong style="color:var(--text);">180일 이내</strong>에 제출한 채용 서류의 반환을 청구할 수 있습니다.</p>
+    <p>단, 홈페이지 또는 전자우편으로 제출된 경우나 지원자가 자발적으로 제출한 경우는 제외됩니다. 반환 청구를 원하시는 지원자는 인사팀에 문의주시면 절차를 안내드립니다.</p>
+    <p>최종합격 발표일로부터 180일까지 채용 서류를 보관하며, 해당 기간 내 반환 청구가 없을 경우 개인정보보호법에 따라 지체없이 일체를 파기할 예정입니다.</p>
+  </div>
+
+</div>
+
+<footer>© 잡앤커리어 HR사업본부 &nbsp;|&nbsp; jobnc@jobnc.co.kr &nbsp;|&nbsp; 010-5716-3459 / 010-5742-4378</footer>
+
+<script>
+  // 스크롤 reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.section, .apply-section, .notice-section').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // 숫자 카운트업
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'));
+          const suffix = el.getAttribute('data-suffix');
+          let current = 0;
+          const step = Math.ceil(target / 50);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 28);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-num').forEach(el => countObserver.observe(el));
+  });
+</script>
+
+</body>
+</html>
